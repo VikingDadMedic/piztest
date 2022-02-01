@@ -5,7 +5,7 @@ import "./styles.css";
 
 // Pizzly environment variables, ake sure to replace
 // these with those of your own Pizzly instance
-const PIZZLY_HOSTNAME = "vspizzlyauth.herokuapp.com";
+const PIZZLY_HOSTNAME = "https://vspizzlyauth.herokuapp.com/";
 const PIZZLY_PUBLISHABLE_KEY = "eXeRtYc3izPTavUJyuTwsuhm8iXhrQZVQfo4kG";
 const PIZZLY_SETUP_ID_FACEBOOK = "4c344d9c-29e0-4faf-a897-eafa41d2b50b";
 
@@ -40,7 +40,7 @@ const App = () => {
   const fetchProfile = async (authId) => {
     await facebook
       .auth(authId)
-      .get("/user")
+      .get("/me")
       .then((response) => response.json())
       .then((json) => setProfile(json));
   };
